@@ -1,16 +1,19 @@
 package com.lsl.cusview;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
-
+    private CusTextView_01 custv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        custv = (CusTextView_01) findViewById(R.id.custv);
+//        custv.setTitleText("1213");
+//        custv.setTitleTExtColor(Color.BLACK);
         //some changes
     }
 
