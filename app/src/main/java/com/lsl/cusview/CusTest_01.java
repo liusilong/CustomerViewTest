@@ -60,7 +60,7 @@ public class CusTest_01 extends View {
         canvas.drawCircle(center, center, radius, mPaint);
         //画圆弧
         RectF rectF = new RectF(center - radius, center - radius, center + radius, center + radius);
-        mPaint.setColor(Color.GREEN);
+        mPaint.setColor(Color.RED);
         canvas.drawArc(rectF, -90, 180, false, mPaint);
 
     }

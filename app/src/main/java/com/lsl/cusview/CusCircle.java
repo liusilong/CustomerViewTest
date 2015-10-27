@@ -128,7 +128,7 @@ public class CusCircle extends View {
              * 画圆弧
              */
             mPaint.setColor(mFirstColor);
-            //根据进度画圆弧
+            //根据进度画圆弧 mProgress为圆弧所扫过的弧度
             canvas.drawArc(oval, -90, mProgress, false, mPaint);
         }
         super.onDraw(canvas);

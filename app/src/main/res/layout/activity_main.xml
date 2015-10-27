@@ -33,6 +33,6 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="20dp"
-        custom:centerText="我的世界"
+        custom:centerText="Hello"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
