@@ -11,4 +11,8 @@
         <attr name="circleWidth" format="dimension" />
         <attr name="speed" format="integer" />
     </declare-styleable>
+    <!-- CusTest_01-->
+    <declare-styleable name="CusTest_01">
+        <attr name="centerText" format="string"/>
+    </declare-styleable>
 </resources>

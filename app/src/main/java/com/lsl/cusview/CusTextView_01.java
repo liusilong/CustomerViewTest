@@ -113,7 +113,7 @@ public class CusTextView_01 extends TextView {
 //        mPaint.setColor(Color.RED);
 //        mPaint.setAlpha(180);
 //        canvas.drawRect(0, 0, getMeasuredWidth(), getMeasuredHeight(), mPaint);
-        //画点
+        //画点(模仿验证码上的噪点)
         mPaint.setColor(Color.GREEN);
         mPaint.setAlpha(255);
         mPaint.setStrokeWidth(5);

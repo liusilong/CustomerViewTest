@@ -12,6 +12,10 @@ import android.view.View;
 
 /**
  * Created by hughes on 15/10/23.
+ * 本自定义View思路：
+ * 两个空心圆弧相互交替的转
+ * 分解效果：
+ * 先画出底部额圆环形，在画上面的圆环，圆环的进度（圆弧扫过的角度）为构造方法中的mProgress
  */
 public class CusCircle extends View {
     //第一圈颜色
@@ -22,19 +26,27 @@ public class CusCircle extends View {
     private int mCircleWidth;
     //速度
     private int mSpeed;
-    //当前进度
+    //当前进度 确切的说时圆弧扫过的角度，360°为一圈
     private int mProgress;
     //画笔
     private Paint mPaint;
     //是否开始下一个
     private boolean isNext = false;
 
+    private String TAG = this.getClass().getName();
+
     public CusCircle(Context context) {
-        super(context);
+        this(context, null);
     }
 
     public CusCircle(Context context, AttributeSet attrs) {
-        super(context, attrs);
+//        super(context, attrs);
+        this(context, attrs, 0);
+
+    }
+
+    public CusCircle(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CustomProgressBar);
         int n = a.getIndexCount();
         for (int i = 0; i < n; i++) {
@@ -92,19 +104,29 @@ public class CusCircle extends View {
         mPaint.setStyle(Paint.Style.STROKE);//设置空心
         //用于定义圆弧的形状和大小的界限
         RectF oval = new RectF(center - radius, center - radius, center + radius, center + radius);
+        int left = center - radius;
+        int right = center + radius;
+//        Log.i(TAG, "getWidth:" + getWidth() + "getHeight:" + getHeight() + "mCircleWidth:" + mCircleWidth + "radius:" + radius);
+//        Log.i(TAG, "left:" + left + "top:" + left + "right:" + right + "bottom:" + right);
         if (!isNext) {
             //第一圈颜色完整，第二圈跑
             mPaint.setColor(mFirstColor);
             //画出圆环
             canvas.drawCircle(center, center, radius, mPaint);
             mPaint.setColor(mSecondColor);
-            //根据进度画圆弧
+            //根据进度画圆弧  在圆环上画弧
             canvas.drawArc(oval, -90, mProgress, false, mPaint);
         } else {
+            /**
+             * 画底部的圆环
+             */
             //第一圈颜色完整，第二圈跑
             mPaint.setColor(mSecondColor);
             //画出圆环
             canvas.drawCircle(center, center, radius, mPaint);
+            /**
+             * 画圆弧
+             */
             mPaint.setColor(mFirstColor);
             //根据进度画圆弧
             canvas.drawArc(oval, -90, mProgress, false, mPaint);

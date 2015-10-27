@@ -6,10 +6,11 @@
     tools:context=".MainActivity">
 
     <!--<com.lsl.cusview.CusBitmap-->
-        <!--android:id="@+id/cusbt"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content" />-->
+    <!--android:id="@+id/cusbt"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content" />-->
 
+    <!-- 两种颜色相互交替的圆环-->
     <com.lsl.cusview.CusCircle
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -17,7 +18,7 @@
         custom:firstColor="#ffff0000"
         custom:secondColor="#000000"
         custom:speed="5" />
-
+    <!--自定义验证码-->
     <com.lsl.cusview.CusTextView_01
         android:id="@+id/custv"
         android:layout_width="wrap_content"
@@ -28,5 +29,10 @@
         custom:titleTextColor="#ff0000"
         custom:titleTextSize="40sp" />
 
-
+    <com.lsl.cusview.CusTest_01
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        custom:centerText="我的世界"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
